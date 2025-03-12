@@ -1,17 +1,18 @@
 
 
-This is a simple Next.js + TypeScript application that allows users to add, search, and delete products using a mock API (db.json).
+This is a simple Next.js + TypeScript application that allows users to add, search, edit and delete products using a mock API (db.json).
 
 Features
 
 ✅ Add new products (name, price, category)
 ✅ Search products by name
+✅ Edit products
 ✅ Delete products
 ✅ Responsive UI with Navbar & Footer
 ✅ Uses json-server as a mock API
 
 
----
+
 
 1. Installation
 
@@ -100,15 +101,16 @@ Type in the search bar
 Products filter dynamically
 
 
+Editing a Product 
+
+Click "Edit" button 
+
+
 Deleting a Product
 
 Click "Delete" button
 
 Product is removed
-
-
-
----
 
 5. Code Highlights
 
@@ -134,9 +136,6 @@ Deleting a Product (lib/api.ts)
 export const deleteProduct = async (id: number) => {
   await fetch(http://localhost:5000/products/${id}, { method: "DELETE" });
 };
-
-
----
 
 6. Styling & UI
 
