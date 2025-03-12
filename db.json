@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": "2",
+      "name": "Iron Sheet",
+      "price": 250,
+      "category": "Metal"
+    },
+    {
+      "id": "beed",
+      "name": "Steel Rod",
+      "price": 100,
+      "category": "Iron"
+    },
+    {
+      "id": "1db0",
+      "name": "sar",
+      "price": 100,
+      "category": "Metal"
+    },
+    {
+      "id": "5c57",
+      "name": "sirr",
+      "price": 200,
+      "category": "testyy"
+    }
+  ]
+}

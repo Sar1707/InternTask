@@ -1,36 +1,149 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
 
-First, run the development server:
+This is a simple Next.js + TypeScript application that allows users to add, search, and delete products using a mock API (db.json).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+✅ Add new products (name, price, category)
+✅ Search products by name
+✅ Delete products
+✅ Responsive UI with Navbar & Footer
+✅ Uses json-server as a mock API
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+1. Installation
 
-To learn more about Next.js, take a look at the following resources:
+Prerequisites
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Node.js installed (v16+ recommended)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Package manager (npm or yarn)
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Steps
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Clone the repository:
+
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+
+Install dependencies:
+
+npm install  # or yarn install
+
+Start the mock API server:
+
+npx json-server --watch db.json --port 5000
+
+> This runs db.json on http://localhost:5000
+
+
+
+Start the Next.js app:
+
+npm run dev  # or yarn dev
+
+> The app will be available at http://localhost:3000
+
+
+
+
+---
+
+2. Folder Structure
+
+/project-root
+│── /app (or /pages)        # Next.js pages
+│── /components             # Reusable UI components
+│── /lib                    # API calls
+│── /public                 # Static assets
+│── /styles                 # CSS files
+│── db.json                 # Mock API data
+│── README.md               # Project documentation
+│── next.config.js          # Next.js config
+│── tsconfig.json           # TypeScript config
+
+
+---
+
+3. API Endpoints (Mock API - db.json)
+
+Example Product Data (db.json)
+
+{
+  "products": [
+    { "id": 1, "name": "Steel Rod", "category": "Raw Material", "price": 100 },
+    { "id": 2, "name": "Iron Sheet", "category": "Metal", "price": 250 }
+  ]
+}
+
+
+---
+
+4. How It Works
+
+Adding a Product
+
+Enter product details (name, price, category)
+
+Click "Add Product"
+
+Product is added and displayed
+
+
+Searching for a Product
+
+Type in the search bar
+
+Products filter dynamically
+
+
+Deleting a Product
+
+Click "Delete" button
+
+Product is removed
+
+
+
+---
+
+5. Code Highlights
+
+Fetching Products (lib/api.ts)
+
+export const fetchProducts = async () => {
+  const res = await fetch("http://localhost:5000/products");
+  return res.json();
+};
+
+Adding a Product (lib/api.ts)
+
+export const addProduct = async (product: Omit<Product, "id">) => {
+  await fetch("http://localhost:5000/products", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(product),
+  });
+};
+
+Deleting a Product (lib/api.ts)
+
+export const deleteProduct = async (id: number) => {
+  await fetch(http://localhost:5000/products/${id}, { method: "DELETE" });
+};
+
+
+---
+
+6. Styling & UI
+
+Uses Tailwind CSS for styling
+
+
+Responsive design
+
+
+
